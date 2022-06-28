@@ -1,5 +1,5 @@
 import { getNewId } from "../utils";
-import { ITEM_ADD, ITEM_EDIT, TodoAction, ITEM_REMOVE, ITEM_DELETE, ITEM_DONE } from "./todoAC";
+import { ITEM_ADD, ITEM_EDIT, TodoAction, ITEM_DELETE, ITEM_DONE } from "./todoAC";
 
 type Item = {
   id: string;
@@ -12,7 +12,6 @@ type State = {
 };
 
 const initialState: State = {
-
 
   items: [{ id: getNewId(), text: '', done: false }],
 };
@@ -48,17 +47,6 @@ const todoReducer = (
         ],
       };
 
-    case ITEM_REMOVE:
-      console.log("item remove");
-      console.log(state.items)
-      return {
-        items: [
-          ...state.items.filter(a => a.text !== '')
-
-
-        ],
-      };
-
     case ITEM_DELETE:
       console.log("item delete");
       console.log(state.items)
@@ -70,19 +58,19 @@ const todoReducer = (
         ],
       };
 
-      case ITEM_DONE:
-        console.log("item done");
-        console.log(state.items)
-        const _index = state.items.findIndex((item) => item.id === action.itemId);
-        return {
-          items: [
-            ...state.items.slice(0, _index),
-            { ...state.items[_index], done: action.itemDone },
-            ...state.items.slice(_index + 1),
-          ],
-        };
-    
-      default:
+    case ITEM_DONE:
+      console.log("item done");
+      console.log(state.items)
+      const _index = state.items.findIndex((item) => item.id === action.itemId);
+      return {
+        items: [
+          ...state.items.slice(0, _index),
+          { ...state.items[_index], done: action.itemDone },
+          ...state.items.slice(_index + 1),
+        ],
+      };
+
+    default:
       return state;
   }
 };

@@ -48,3 +48,11 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## External Libraries
+
+Material UI is used for better UI/UX
+
+Install using the following command  yarn add @mui/material @emotion/react @emotion/styled
+
+To use material icons run yarn add @mui/icons-material

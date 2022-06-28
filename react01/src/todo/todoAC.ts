@@ -2,11 +2,10 @@ import { Action } from "redux";
 
 export const ITEM_ADD = "ITEM_ADD";
 export const ITEM_EDIT = "ITEM_EDIT";
-export const ITEM_REMOVE = "ITEM_REMOVE";
 export const ITEM_DELETE = "ITEM_DELETE"
 export const ITEM_DONE = "ITEM_DONE"
 
-export type TodoAction = AddTodoAction | EditTodoAction | RemoveTodoAction | DeleteTodoAction |DoneTodoAction;
+export type TodoAction = AddTodoAction | EditTodoAction | DeleteTodoAction |DoneTodoAction;
 
 export interface AddTodoAction extends Action<typeof ITEM_ADD> {
 
@@ -24,14 +23,6 @@ export const editTodo = (itemId: string, text: string): EditTodoAction => ({
   type: ITEM_EDIT,
   itemId,
   text,
-});
-
-export interface RemoveTodoAction extends Action<typeof ITEM_REMOVE> {
-  
-}
-export const removeTodo = (): RemoveTodoAction => ({
-  type: ITEM_REMOVE,
-
 });
 
 export interface DeleteTodoAction extends Action<typeof ITEM_DELETE> {
